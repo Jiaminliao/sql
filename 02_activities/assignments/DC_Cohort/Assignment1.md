@@ -205,5 +205,8 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+I think it’s almost impossible for most data systems we encounter in daily life to be completely neutral. I’m not very familiar with large-scale databases like the national ID system mentioned in the article, but I can imagine how much effort the designers must have put in to make it both functional and accurate while still fitting the social and political context of their country. I also realized how a “rigid” or “inflexible” data structure can have serious, long-term negative effects. What’s worrying is that such systems are often created with good intentions like helping the government better manage population data, and are supposed to be fair to everyone.
+This made me think of smaller databases that aren’t designed from a neutral standpoint. For example, the shopping and social media apps that are so popular among young people today all collect user data to recommend products or connect users more effectively. These systems inevitably embed values that prioritize efficiency and profit for the companies. Whether it’s social media feeds or e-shopping recommendations, the underlying logic is to maximize user engagement and commercial conversion. This mindset creates the so-called “information bubble” effect or "information cocoon" in Chinese: we’re trapped in a narrow "cocoon" defined by our own past behavior, reinforcing existing biases and limiting diverse perspectives and rational conversations. The system’s real priority is to keep you scrolling and spending, not to help with critical thinking or social well-being.
+
+
 ```
