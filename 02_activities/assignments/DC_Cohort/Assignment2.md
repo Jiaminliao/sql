@@ -54,7 +54,47 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+NOTE: I already had address in my customer table for prompt 1 and 2.
+I will remove the column if I need to add an address table.
+------------------------------------------------------------------------------
+Type 1: 
+Overwrite
+old address updated with new address
+old address lost
+
+-- The code might not be perfect, just want to show what it may looks like:
+CREATE TABLE customer_address(
+customer_id,
+street number, 
+street_name,
+city,
+province_state,
+country,
+postal_code)
+
+Query example:
+UPDATE customer_address
+SET street_number='12'
+WHERE customer_id=24
+
+This way, the historical data cannot be saved because customer_id is unique.
+-------------------------------------------------------------------------------
+Type 2: 
+Add new row
+keep old data
+the same customer_id can now have multiple rows
+
+The customer_address table will have some extra columns, for examples:
+1. address_id
+2. status (current or expired)
+3. version
+4. start_date
+5. end_date
+...
+
+Now I can UPDATE the status of the old address
+INSERT INTO the new address and the new one will have its own unique address ID
+
 ```
 
 ***
@@ -183,5 +223,14 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Vicki Boykis’s article “Neural Nets Are Just People All the Way Down” reveals key ethical issues in modern artificial intelligence and database research. Behind the convenience of automation lies a large amount of invisible human labour. Within the vast ocean of information, databases are filled with bias and inequality. As the title suggests, beneath every layer of a “neural network” are people—making decisions, organizing data, and inevitably embedding their own perspectives and biases, which shape how AI learns and behaves.
+
+First, the issue of ignored human labour is central. In the article, Boykis cites the case of ImageNet, where Professor Fei-Fei Li’s team hired thousands of low-paid workers to label images, filter harmful content, and classify visual data for AI training. Most of these workers came from developing countries and earned very little, functioning as small screws within the project's big machinery. These workers may have to regularly view disturbing materials, which might impact their mental health. This reveals serious problems of exploitation and fairness: while AI systems generate billions of dollars in value, the people who support them still work under unstable conditions. The same issue extends to the students and research assistants who contributed to the project—their hard work was often barely acknowledged or entirely forgotten. They were not seen as co-creators of intelligent systems, but as disposable labour behind the scenes.
+
+The second ethical issue is bias. Neural networks are trained on data drawn from real-world sources, which means the data itself reflects social hierarchy, stereotypes, gender bias and so on. Because these systems process information at a massive scale, they can reproduce or even amplify such inequalities. The example of the ImageNet Roulette project is a warning: offensive and discriminatory patterns have already crept into AI technologies, subtly influencing our daily lives. One can easily imagine that if these biased models were applied to hiring, education, or art, the results would further spread those inequalities.
+
+The third issue concerns the proliferation of large AI models and their ethical costs. Each new generation of models requires ever-larger datasets and computing power, which excludes smaller companies and concentrates power in the hands of a few tech giants. The knowledge and profit are monopolized, while the workers who train the systems remain easily replaceable. Those who benefit and those who bear the costs are never the same people.
+
+In conclusion, neural networks are not independent minds but reflections of the social systems covered by commands and code. Everyone should recognize the human foundation beneath AI and pay attention to related issues such as fair wages, mental health, and inclusivity in knowledge production. As technology drives us toward an increasingly data-driven and AI-saturated future, respecting and protecting every worker is, ultimately, a way of caring for ourselves.
+
 ```
